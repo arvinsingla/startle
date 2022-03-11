@@ -1,0 +1,40 @@
+.WorldeInput-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
+}
+
+.WordleInput-letters {
+    display: flex;
+    flex-direction: row;
+}
+
+.WordleInput-letters.match .WordleInput-letter {
+    background-color: #538d4e;
+    border: 2px solid #538d4e;
+}
+
+.WordleInput-letter {
+    border: 2px solid #3a3a3c;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #ffffff;
+    margin-right: 5px;
+}
+
+.WordleInput-letter:last-of-type {
+    margin-right: 0;
+}
+
