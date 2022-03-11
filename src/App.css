@@ -1,3 +1,7 @@
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .App-header {
   text-align: center;
   text-transform: capitalize;
@@ -29,6 +33,7 @@
   text-align: center;
   font-size: 0.8em;
   opacity: 0.7;
+  line-height: 1.5em;
 }
 
 .green {

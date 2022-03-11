@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-
-import './App.css';
 import WordleInput from './components/WordleInput/WordleInput';
 import { generateWordList } from './lib/wordle'
+import './App.css';
 
 function App() {
   const words = generateWordList()
@@ -20,10 +19,11 @@ function App() {
         <h1>startle</h1>
       </header>
       <main className="App-content">
-        <p>Enter your starting word. If it goes <span className="green">green</span><br/>it has previously been the Wordle of the day.</p>
+        <p>Enter your starting word. If it turns 🟩<br/>it has previously been the <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a> of the day.</p>
         <WordleInput value={word} onChange={onChange} isMatch={isMatch} />
       </main>
       <footer className="App-footer">
+        Not in an way affilliated with Wordle<br/>
         Made by <a href="http://www.arvinsingla.com">Arvin</a>
       </footer>
     </div>
