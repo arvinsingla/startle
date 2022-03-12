@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import WordleInput from './components/WordleInput/WordleInput';
+import { useDeviceData } from 'react-device-detect';
 import { generateWordList } from './lib/wordle'
 import './App.css';
+
+const OS_IOS = 'iOS'
 
 function App() {
   const words = generateWordList()
   const [word, setWord] = useState('')
+  const deviceData = useDeviceData()
 
   const onChange = (value) => {
     setWord(value);
   };
 
   const isMatch = words.includes(word.toLowerCase())
+  const isIOS = deviceData && deviceData.os && deviceData.os.name === OS_IOS
 
   return (
     <div className="App">
@@ -19,8 +24,11 @@ function App() {
         <h1>startle</h1>
       </header>
       <main className="App-content">
-        <p>Enter your starting word. If it turns 🟩<br/>it has previously been the <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a> of the day.</p>
-        <WordleInput value={word} onChange={onChange} isMatch={isMatch} />
+        <p>Enter your starting word. If it turns 🟩<br/>it was previously the <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a> of the day.</p>
+        {isIOS &&
+          <p>Tap a box to start</p>
+        }
+        <WordleInput value={word} onChange={onChange} isMatch={isMatch} isIOS={isIOS} />
       </main>
       <footer className="App-footer">
         Not in an way affilliated with Wordle<br/>

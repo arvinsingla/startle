@@ -1,3 +1,18 @@
+@keyframes pop {
+    0% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
 .WorldeInput-input {
     position: absolute;
     width: 1px;
@@ -32,6 +47,12 @@
     line-height: 60px;
     color: #ffffff;
     margin-right: 5px;
+    transition: all .2s ease-in-out;
+}
+
+.WordleInput-letter.hasletter {
+    animation: pop 0.1s ease-in-out;
+    -webkit-animation: pop 0.1s ease-in-out;
 }
 
 .WordleInput-letter:last-of-type {
