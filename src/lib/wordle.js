@@ -17,6 +17,7 @@ function Ba(e, a) {
 function Va(e) {
     var a,
         s = Fa(e);
+    // eslint-disable-next-line no-sequences
     return (a = s % Ma.length), Ma[a];
 }
 function Fa(e) {
