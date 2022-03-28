@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/startle.github.io/static/css/main.8fffa634.css",
+    "main.js": "/startle.github.io/static/js/main.d4b0dcda.js",
+    "index.html": "/startle.github.io/index.html",
+    "main.8fffa634.css.map": "/startle.github.io/static/css/main.8fffa634.css.map",
+    "main.d4b0dcda.js.map": "/startle.github.io/static/js/main.d4b0dcda.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8fffa634.css",
+    "static/js/main.d4b0dcda.js"
+  ]
+}
