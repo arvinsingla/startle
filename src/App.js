@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import WordleInput from './components/WordleInput/WordleInput';
 import { useDeviceData } from 'react-device-detect';
-import { generateWordList } from './lib/wordle'
+import { generateWordList, isInFullWordLIst } from './lib/wordle'
 import './App.css';
 
 const OS_IOS = 'iOS'
@@ -10,6 +10,7 @@ function App() {
   const words = generateWordList()
   const [word, setWord] = useState('')
   const deviceData = useDeviceData()
+  const isWordComplete = word.length === 5
 
   const onChange = (value) => {
     setWord(value);
@@ -29,6 +30,9 @@ function App() {
           <p>Tap a box to start</p>
         }
         <WordleInput value={word} onChange={onChange} isMatch={isMatch} isIOS={isIOS} />
+        {isWordComplete && !isInFullWordLIst(word.toLowerCase()) &&
+          <p className="notInWordList">Not in word list</p>
+        }
       </main>
       <footer className="App-footer">
         Not in an way affilliated with Wordle<br/>

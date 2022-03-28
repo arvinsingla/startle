@@ -32,3 +32,7 @@ export const generateWordList = () => {
     } while(dateIterator.getTime() < yesterday.getTime())
     return words
 }
+
+export const isInFullWordLIst = (word) => {
+    return Ma.includes(word)
+}
