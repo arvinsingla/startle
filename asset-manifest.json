@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/startle/static/css/main.8fffa634.css",
-    "main.js": "/startle/static/js/main.d4b0dcda.js",
-    "index.html": "/startle/index.html",
-    "main.8fffa634.css.map": "/startle/static/css/main.8fffa634.css.map",
-    "main.d4b0dcda.js.map": "/startle/static/js/main.d4b0dcda.js.map"
+    "main.css": "/static/css/main.8fffa634.css",
+    "main.js": "/static/js/main.d4b0dcda.js",
+    "index.html": "/index.html",
+    "main.8fffa634.css.map": "/static/css/main.8fffa634.css.map",
+    "main.d4b0dcda.js.map": "/static/js/main.d4b0dcda.js.map"
   },
   "entrypoints": [
     "static/css/main.8fffa634.css",
