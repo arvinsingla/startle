@@ -44,7 +44,7 @@ function App() {
         }
         <WordleInput value={word} onChange={onChange} isMatch={isMatch} isIOS={isIOS} />
         {isMatch &&
-          <p className="notInWordList">{wordList[word]}</p> 
+          <p className="notInWordList">{wordList[word.toLowerCase()]}</p> 
         }
       </main>
       <footer className="App-footer">
