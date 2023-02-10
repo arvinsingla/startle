@@ -14,7 +14,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const wordListUrl = 'https://storage.googleapis.com/startle/wordList.json'
-      const response = await fetch(wordListUrl);
+      const response = await fetch(wordListUrl, {
+        cache: 'no-cache'
+      });
       const data = await response.json();
       setWordList(data);
     };
