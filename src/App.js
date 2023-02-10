@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WordleInput from './components/WordleInput/WordleInput';
 import { useDeviceData } from 'react-device-detect';
-import { generateWordList, isInFullWordLIst } from './lib/wordle'
 import './App.css';
 
 const OS_IOS = 'iOS'
 
 function App() {
-  const words = generateWordList()
+  const [wordList, setWordList] = useState({})
   const [word, setWord] = useState('')
   const deviceData = useDeviceData()
-  const isWordComplete = word.length === 5
+
+  // Download the word list
+  useEffect(() => {
+    const fetchData = async () => {
+      const wordListUrl = 'https://storage.googleapis.com/startle/wordList.json'
+      const response = await fetch(wordListUrl);
+      const data = await response.json();
+      setWordList(data);
+    };
+
+    fetchData();
+  }, []);
 
   const onChange = (value) => {
     setWord(value);
   };
 
-  const isMatch = words.includes(word.toLowerCase())
+  const matchIndex = Object.keys(wordList).indexOf(word.toLowerCase())
+  const isMatch = matchIndex !== -1
   const isIOS = deviceData && deviceData.os && deviceData.os.name === OS_IOS
 
   return (
@@ -30,8 +41,8 @@ function App() {
           <p>Tap a box to start</p>
         }
         <WordleInput value={word} onChange={onChange} isMatch={isMatch} isIOS={isIOS} />
-        {isWordComplete && !isInFullWordLIst(word.toLowerCase()) &&
-          <p className="notInWordList">Not in word list</p>
+        {isMatch &&
+          <p className="notInWordList">{wordList[word]}</p> 
         }
       </main>
       <footer className="App-footer">
